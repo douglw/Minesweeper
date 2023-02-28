@@ -106,3 +106,14 @@ public class MSButton
         return flagged;
     }
 }
+
+
+/*    noStroke();
+  fill(#B7B1B1); //middle
+  rect(50,50,20,20);
+  fill(#E5E5E5); //light
+  rect(50,50,2,20);
+  rect(50,50,20,2);
+  fill(#8E8C8C); //dark */ // SHAPE
+
+
