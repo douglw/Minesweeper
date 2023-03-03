@@ -193,3 +193,14 @@ public class MSButton
         myLabel = ""+ newLabel;
     }
 }
+
+  /*noStroke();
+  fill(#CBCBCB); //gray middle
+  rect(0,0,20,20);
+  fill(#747474); //darker
+  rect(0,18,20,2);
+  rect(18,0,2,20);
+  fill(#F5F2F2); //white
+  rect(0,0,20,2);
+  rect(0,0,2,20);*/ //this is the code for the shape of each box. make it look like Minesweeper. 
+ 
