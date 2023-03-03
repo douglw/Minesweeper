@@ -69,23 +69,23 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-    for(int i=0;i<NUM_ROWS;i++){
-        for(int j=0;j<NUM_COLS;j++){
-            if(buttons[i][j].isClicked() && !mines.contains(buttons[i][j])){
-            buttons[0][0].setLabel("W");
-            buttons[1][1].setLabel("I");
-            buttons[2][2].setLabel("N");
-            buttons[3][3].setLabel("N");
-            buttons[4][4].setLabel("E");
-            buttons[5][5].setLabel("R");
-            }
-        }
-    }
+    //for(int i=0;i<NUM_ROWS;i++){
+    //    for(int j=0;j<NUM_COLS;j++){
+    //        if(buttons[i][j].isClicked() && !mines.contains(buttons[i][j])){
+    //        buttons[0][0].setLabel("W");
+    //        buttons[1][1].setLabel("I");
+    //        buttons[2][2].setLabel("N");
+    //        buttons[3][3].setLabel("N");
+    //        buttons[4][4].setLabel("E");
+    //        buttons[5][5].setLabel("R");
+    //        }
+    //    }
+    //}
 }
 public boolean isValid(int r, int c)
 {
-    if(row >= 0 && col >= 0){
-        if(row < NUM_ROWS && col < NUM_COLS){
+    if(r >= 0 && c >= 0){
+        if(r < NUM_ROWS && c < NUM_COLS){
             return true;
         }
   }
@@ -94,56 +94,17 @@ public boolean isValid(int r, int c)
 public int countMines(int row, int col)
 {
     int numMines = 0;
-    // for(int r = row-1; r <= row+1; r++){ 
-    //     for(int c = col-1; c <= col+1; c++){ 
-    //         if(isValid(r,c) == true && mines[r][c] == 5){ 
-    //             numMines = numMines + 1;
-    //         }
-    //     }
-    // }
-    // if(mines[row][col] == 5){ 
-    //     numMines = numMines - 1;
-    // }  
-    if(isValid(row-1, col-1))
-    {
-        if(mines.contains(buttons[row-1][col-1]))
-            numMines++;
-    }
-    if(isValid(row-1, col))
-    {
-        if(mines.contains(buttons[row-1][col]))
-            numMines++;
-    }
-    if(isValid(row-1, col+1))
-    {
-        if(mines.contains(buttons[row-1][col+1]))
-            numMines++;
-    }
-    if(isValid(row, col-1))
-    {
-        if(mines.contains(buttons[row][col-1]))
-            numMines++;
-    }
-    if(isValid(row, col+1))
-    {
-        if(mines.contains(buttons[row][col+1]))
-            numMines++;
-    }
-    if(isValid(row+1, col-1))
-    {
-        if(mines.contains(buttons[row+1][col-1]))
-            numMines++;
-    }
-    if(isValid(row+1, col))
-    {
-        if(mines.contains(buttons[row+1][col]))
-            numMines++;
-    }
-    if(isValid(row+1, col+1))
-    {
-        if(mines.contains(buttons[row+1][col+1]))
-            numMines++;
-    }
+     for(int r = row-1; r <= row+1; r++){ 
+         for(int c = col-1; c <= col+1; c++){ 
+             if(isValid(r,c) == true && buttons[r][c].isClicked()){ 
+                 numMines = numMines + 1;
+             }
+         }
+     }
+     if(!buttons[row][col].isClicked()){ 
+         numMines = numMines - 1;
+     }
+   return numMines;
 }
 public class MSButton
 {
@@ -187,13 +148,13 @@ public class MSButton
             myLabel = str(countMines(r,c));
         }
         else{
-            // for (int rrow = r-1; rrow < r+1; rrow++) {
-            //     for (int ccol = c-1; ccol < c+1; ccol++) {
-            //         if(isValid(rrow,ccol) == true && buttons[rrow][ccol].isClicked() == false){
-            //                 buttons[rrow][ccol].mousePressed();
-            //         }
-            //     }
-            // }
+             //for (int rrow = r-1; rrow < r+1; rrow++) {
+             //    for (int ccol = c-1; ccol < c+1; ccol++) {
+             //        if(isValid(rrow,ccol) == true && buttons[rrow][ccol].isClicked() == false){
+             //                buttons[rrow][ccol].mousePressed();
+             //        }
+             //    }
+             //} longer code but safer
             if(isValid(r-1, c) && !buttons[r-1][c].isClicked()){
                 buttons[r-1][c].mousePressed();
             }
