@@ -4,7 +4,7 @@ public final static int NUM_COLS = 10;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
-void setup ()
+public void setup ()
 {
     size(400, 400);
     textAlign(CENTER,CENTER);
@@ -238,4 +238,3 @@ public class MSButton
         myLabel = ""+ newLabel;
     }
 }
- 
