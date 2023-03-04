@@ -28,7 +28,6 @@ public void setMines()
         if (!mines.contains(buttons[row][col])) {
             mines.add(buttons[row][col]);
         }
-        System.out.println(row + ", " + col);
     }
 }
 
